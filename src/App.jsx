@@ -61,7 +61,7 @@ const Gauge=({pct,label,subtitle})=>{const c=pct<=15?P.mintD:pct<=25?"#E8B830":p
 /* ═══ MAIN ═══ */
 export default function App(){
   const [step,setStep]=useState(0);
-  const [car,setCar]=useState({make:"",model:"",year:"2025",isNew:"new",msrp:""});
+  const [car,setCar]=useState({make:"",model:"",year:"2026",isNew:"new",msrp:""});
   const [fin,setFin]=useState({down:"",income:"",hasTrade:false});
   const [trade,setTrade]=useState({make:"",model:"",year:"2018",mileage:"",condition:"good"});
   const [results,setResults]=useState(null);
@@ -320,7 +320,7 @@ ONLY the JSON object.`;
         <p style={{margin:"0 0 8px",fontSize:12,color:P.char,fontStyle:"italic",lineHeight:1.5}}>{s.roast}</p>
         <Tip icon={"\u{1F4D6}"} color={P.peach}><strong>Why this matters:</strong> Cars only go down in value. A 72-month loan means you owe more than the car is worth for most of the loan — you're paying interest on something that's shrinking. That lower payment costs you an extra <strong>{$(C.extraInt72)}</strong>.</Tip>
       </div>
-    </Scroll></Phone>
+    </Scroll><div style={{padding:"8px 20px 12px",flexShrink:0}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char} small>New Search 🔄</Btn></div></Phone>
   );}
 
   /* ═══ STEP 5: ADD-ONS ═══ */
@@ -330,7 +330,7 @@ ONLY the JSON object.`;
       <Card bg={P.peach+"33"} style={{marginBottom:12,border:`1.5px solid ${P.peach}`}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><div><p style={{margin:0,fontSize:13,fontWeight:600,color:P.char}}>If you said yes to everything:</p><p style={{margin:"2px 0 0",fontSize:11,color:P.gray}}>Actual value of all add-ons</p></div><div style={{textAlign:"right"}}><p style={{margin:0,fontSize:20,fontWeight:700,color:P.peachD}}>{$(totalD)}</p><p style={{margin:0,fontSize:13,fontWeight:600,color:P.mintD}}>~{$(totalR)} real value</p></div></div></Card>
       {addons.map((a,i)=>{const c=vc[a.verdict]||P.lgray;return(<Card key={i} bg={P.white} style={{marginBottom:8,border:`1.5px solid ${c}`}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:6}}><div style={{display:"flex",alignItems:"center",gap:6,flex:1}}><span style={{fontSize:18}}>{a.emoji}</span><div><p style={{margin:0,fontSize:14,fontWeight:700,color:P.char}}>{a.name}</p><Tag color={c}>{vl[a.verdict]||a.verdict}</Tag></div></div><div style={{textAlign:"right",flexShrink:0}}><p style={{margin:0,fontSize:15,fontWeight:700,color:P.peachD}}>{$(a.dealerPrice)}</p><p style={{margin:0,fontSize:11,color:P.gray}}>Worth ~{$(a.realValue)}</p></div></div><p style={{margin:0,fontSize:12,color:P.gray,lineHeight:1.5,fontStyle:"italic"}}>{a.explanation}</p></Card>);})}
       <Tip icon={"\u{1F4A1}"} color={P.sky}><strong>Pro move:</strong> Extended warranties can be bought later from third parties for much less. Stash $50-75/mo in a "car repair" fund instead.</Tip>
-    </Scroll></Phone>
+    </Scroll><div style={{padding:"8px 20px 12px",flexShrink:0}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char} small>New Search 🔄</Btn></div></Phone>
   );}
 
   /* ═══ STEP 6: ALTERNATIVES ═══ */
@@ -338,7 +338,7 @@ ONLY the JSON object.`;
     <Phone bottomNav={tabBar}><div style={{padding:"8px 20px 0"}}><h2 style={{margin:"4px 0 2px",fontSize:20,fontWeight:700,color:P.char}}>Smarter Picks {"\u{1F3AF}"}</h2><p style={{margin:"0 0 6px",fontSize:12,color:P.gray}}>Same vibes, better math</p></div><Scroll>
       <Tip icon={"\u{1F4A1}"} color={P.sky}>One strategic move beats years of penny-pinching. A smarter car pick saves more than years of skipping lattes.</Tip>
       {alts.map((a,i)=>(<Card key={i} style={{marginBottom:10,border:i===2?`2px solid ${P.mintD}`:`1.5px solid ${P.lgray}`,background:i===2?P.mint+"22":P.white}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:8}}><div style={{flex:1,paddingRight:8}}><Tag color={i===0?P.sky:i===1?P.yellow:P.mint}>{a.tag}</Tag><p style={{margin:"6px 0 0",fontSize:14,fontWeight:700,color:P.char}}>{a.name}</p></div><div style={{textAlign:"right",flexShrink:0}}><p style={{margin:0,fontSize:18,fontWeight:700,color:P.char}}>{$(a.price)}</p><p style={{margin:"2px 0 0",fontSize:11,fontWeight:600,color:P.mintD}}>Save {$(a.savings)}</p></div></div><p style={{margin:"0 0 6px",fontSize:12,color:P.gray,lineHeight:1.5}}>{a.whyBetter}</p><div style={{background:P.cream,borderRadius:10,padding:"8px 12px",display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontSize:12,color:P.gray}}>Monthly (60mo, good credit)</span><span style={{fontSize:15,fontWeight:700,color:P.char}}>{$(a.monthlyPayment)}/mo</span></div></Card>))}
-    </Scroll></Phone>
+    </Scroll><div style={{padding:"8px 20px 12px",flexShrink:0}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char} small>New Search 🔄</Btn></div></Phone>
   );}
 
   /* ═══ STEP 7: TRUE COST ═══ */
@@ -385,7 +385,7 @@ ONLY the JSON object.`;
         <div style={{display:"flex",justifyContent:"center",gap:24,margin:"8px 0"}}><div><p style={{margin:0,fontSize:12,color:P.peachD,fontWeight:600}}>Your Pick</p><p style={{margin:0,fontSize:22,fontWeight:700,color:P.peachD}}>{$(C.tgFiveYrTotal)}</p></div><div style={{fontSize:24,alignSelf:"center"}}>→</div><div><p style={{margin:0,fontSize:12,color:P.mintD,fontWeight:600}}>Smart Pick</p><p style={{margin:0,fontSize:22,fontWeight:700,color:P.mintD}}>{$(C.alFiveYrTotal)}</p></div></div>
         <Tag color={P.mint}>5-Year Savings: {$(C.fiveYrSave)}</Tag>
       </div></Card>
-    </Scroll></Phone>
+    </Scroll><div style={{padding:"8px 20px 12px",flexShrink:0}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char} small>New Search 🔄</Btn></div></Phone>
   );}
 
   /* ═══ STEP 8: LIFETIME ═══ */
@@ -407,7 +407,7 @@ ONLY the JSON object.`;
       <Card bg={P.yellow+"44"} style={{marginBottom:12}}><p style={{margin:0,fontSize:14,fontWeight:600,color:P.char,lineHeight:1.6,textAlign:"center"}}>{lm.funnyComparison}</p></Card>
       <Tip icon={"\u{1F4D6}"} color={P.sky}><strong>One fewer car. Six figures in wealth.</strong> Keep each car one year longer, buy 1-2 fewer over your life, and the math gets even better. — Fintentional</Tip>
       <Tip icon={"\u{1F914}"} color={P.rose}>This isn't about deprivation. If the car brings you joy and fits your bigger goals, go for it. But make it a conscious choice — not a default. That's the difference between drifting and deciding.</Tip>
-    </Scroll></Phone>
+    </Scroll><div style={{padding:"8px 20px 12px",flexShrink:0}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char} small>New Search 🔄</Btn></div></Phone>
   );}
 
   /* ═══ STEP 9: SHARE ═══ */
@@ -452,7 +452,7 @@ ONLY the JSON object.`;
           </div>
         </div>
       )}
-      <div style={{marginTop:16}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2025",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char}>Calculate Another Car {"\u{1F504}"}</Btn></div>
+      <div style={{marginTop:16}}><Btn onClick={()=>{setStep(0);setResults(null);setChosen(null);setCar({make:"",model:"",year:"2026",isNew:"new",msrp:""});setFin({down:"",income:"",hasTrade:false});}} color={P.lav} tc={P.char}>Calculate Another Car {"\u{1F504}"}</Btn></div>
       <p style={{textAlign:"center",fontSize:11,color:P.gray,marginTop:16,lineHeight:1.5}}>Built with the <strong>Fintentional Framework</strong><br/>The goal isn't the cheapest car. It's the car that leaves room for everything else you're trying to build. {"\u{1F697}\u{1F4A8}"}</p>
     </Scroll></Phone>
   );}
